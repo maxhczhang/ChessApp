@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const PORT = 5001;
 
 // backend server storage for games
 const games = {};
-
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // backend api to save game
 app.post('/api/save-game', (req, res) => {
