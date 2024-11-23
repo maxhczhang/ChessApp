@@ -1,5 +1,5 @@
 let main = {
-
+    // game state variables, tracks information such as current turn and piece info
     variables: {
       turn: 'w',
       selectedpiece: '',
@@ -235,7 +235,7 @@ let main = {
   
       }
     },
-  
+    // initial setup with predefined piece positions
     methods: {
       gamesetup: function() {
         $('.gamecell').attr('chess', 'null');
@@ -245,7 +245,7 @@ let main = {
         }
       },
       
-      
+      // displays possible moves for a selected piece
       moveoptions: function(selectedpiece) {
   
         let position = { x: '', y: '' };
@@ -465,7 +465,7 @@ let main = {
   
         }
       },
-
+      // logs a move into moveHistory
       logMove: function(piece, start, end) { // Add logMove here
         // Determine which piece moved (e.g., "White King" or "Black Pawn")
         const moveDescription = formatMove(piece, start, end);
@@ -479,7 +479,7 @@ let main = {
         moveItem.textContent = moveDescription;
         moveList.appendChild(moveItem);
       },
-
+      // determines which cells or positions a piece can move to/take
       options: function(startpoint, coordinates, piecetype) { // first check if any of the possible coordinates is out of bounds;
           
         coordinates = coordinates.filter(val => {
@@ -637,7 +637,8 @@ let main = {
         return coordinates;
         
       },
-  
+
+      // captures a piece
       capture: function(target) {
         let selectedpiece = {
           name: $('#' + main.variables.selectedpiece).attr('chess'),
@@ -658,7 +659,8 @@ let main = {
         // Log the capture move
         main.methods.logMove(selectedpiece.name, startPosition, endPosition);
       },  
-  
+      
+
       move: function(target) {
         let selectedpiece = $('#' + main.variables.selectedpiece).attr('chess');
         const startPosition = main.variables.pieces[selectedpiece].position;
@@ -723,9 +725,11 @@ let main = {
     }
   };
   
+  // initialize the game when the page is ready
   $(document).ready(function() {
     main.methods.gamesetup();
   
+    // detects clicks on game cells
     $('.gamecell').click(function(e) {
   
       var selectedpiece = {
@@ -849,7 +853,7 @@ let main = {
     });
   
   });
-
+// conventional chesspiece notation formatting
 function formatMove(pieceType, start, end) {
     const pieceSymbols = {
         w_king: 'K',
@@ -882,11 +886,12 @@ function convertToChessNotation(position) {
     return `${file}${y}`;
 }
   
-
+// saves the game into the backend server
 function saveGame() {
     const gameId = document.getElementById('gameId').value || 'default_game';
     const pieces = main.variables.pieces;
 
+    // sends a POST request to save
     fetch('http://localhost:5001/api/save-game', {
         method: 'POST',
         headers: {
@@ -904,6 +909,7 @@ function saveGame() {
     });
 }
 
+// attemps to load a game from any saved position in the backend
 function loadGame() {
     const gameId = document.getElementById('gameId').value || 'default_game';
 
@@ -925,6 +931,7 @@ function loadGame() {
     });
 }
 
+// clears chess board, used for loading a new game and to make sure no previous pieces remain on the board
 function clearBoard() {
     $('.gamecell').each(function() {
         $(this).html(''); // get rid of icons

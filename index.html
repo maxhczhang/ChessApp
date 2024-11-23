@@ -9,6 +9,7 @@
 <body>
   <!-- partial:index.partial.html -->
   <div id="game">
+    <!-- rows and columns for the board, with alternating grey and white cells-->
     <div class='cellprefix'>8</div>
     <div class='gamecell' id='1_8'></div>
     <div class='gamecell grey' id='2_8'></div>
@@ -90,6 +91,7 @@
     <div class='cellprefix'>f</div>
     <div class='cellprefix'>g</div>
     <div class='cellprefix'>h</div><br>
+    <!-- turn indicator, will always be white for first move -->
     <div id='turn'>It's White's Turn!</div>
   </div>
 
@@ -109,6 +111,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script  src="./script.js"></script>
 
+  <!-- move history section -->
   <div id="moveHistory">
     <h2>Move History</h2>
     <ul id="moveList"></ul>

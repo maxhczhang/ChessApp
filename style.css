@@ -1,3 +1,4 @@
+/* styling for html elements */
 html,
 body {
   width: 100%;
@@ -14,6 +15,7 @@ div * {
   box-sizing: border-box;
 }
 
+/* styling for turn indicator */
 #turn {
   max-width: 451px;
   max-height: 30px;
@@ -35,6 +37,7 @@ div * {
   color: #fff;
 }
 
+/* styling for game container, where the chessboard and related elements should be */
 #game {
     display: inline-block;
     vertical-align: top;
@@ -45,7 +48,7 @@ div * {
     margin: 20px auto;
     position: relative;
 }
-
+/* styling for move history block/section */
 #moveHistory {
     position: absolute;
     top: 20px;
@@ -60,6 +63,7 @@ div * {
     text-align: left;
 }
 
+/* styling for move history title over the moves in the history */
 #moveHistory h2 {
     text-align: center;
     font-size: 16px;
@@ -67,6 +71,7 @@ div * {
     color: #444;
 }
 
+/* styling for the actual list of moves inside move history */
 #moveList {
     list-style-type: none;
     padding: 0;
@@ -79,6 +84,7 @@ div * {
     border-bottom: 1px solid #ddd;
 }
 
+/* styling for controls */
 #controls {
     display: flex;
     flex-direction: column;
@@ -109,6 +115,7 @@ div * {
     font-size: 14px;
 }
 
+/* effect for when user is hovering over a button */
 #controls button:hover {
     background-color: #0056b3;
 }
@@ -123,6 +130,7 @@ div * {
   padding: 15px 0 0 20px;
 }
 
+/* styling for game cells */
 .gamecell {
   border: 1px solid #000;
   width: 100%;
@@ -139,6 +147,7 @@ div * {
   z-index: 1;
 }
 
+/* hover styling effect for when user hovers over a cell */
 .gamecell:hover {
   color: #fff;
   background: rgba(37, 88, 228, 0.712);
@@ -147,6 +156,7 @@ div * {
   animation: neonBlueText 1.5s ease-in-out infinite alternate;
 }
 
+/* different colours for styling */
 .grey {
   background: rgba(128, 128, 128, 0.801);
 }
@@ -168,6 +178,7 @@ div * {
   animation: neonGreenText 1.5s ease-in-out infinite alternate;
 }
 
+/* additional animations for neon elements */
 /* --- N E O N    T E X T --- */
 @keyframes neonBlueText {
   from {
@@ -238,6 +249,7 @@ div * {
 .shake-trigger:hover .shake-little {
   animation-play-state: running; }
 
+/* more animations for shaking */
 @keyframes shake-little {
   2% {
     transform: translate(1px, 0px) rotate(0.5deg); }
